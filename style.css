@@ -24,11 +24,14 @@ body {
   background: #010A26;
   color: #e5e7eb;
   line-height: 1.6;
-  font-family: 'Poppins', sans-serif;
-  margin-left: 100px;
-  margin-right: 100px;
   margin-top: 50px;
   margin-bottom: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px;
 }
 
 .hero {
@@ -56,7 +59,6 @@ body {
 }
 
 .toggles {
-  /* max-width: 2000px; */
   margin: 10px  0px;
   padding: 0 0px;
 }
@@ -68,8 +70,12 @@ body {
   overflow: hidden;
 }
 
-.toggle-item summary:hover {
-  text-decoration: underline;
+.toggle-item summary:hover .summary-text {
+  color: #2A5E8C;
+}
+
+.toggle-item summary:hover::after {
+  color: #2A5E8C;
 }
 
 .toggle-item summary {
@@ -87,8 +93,8 @@ body {
 
 .toggle-item summary::after {
   content: "▸";
-  float: right;
-  transition: transform 0.2s ease;
+  float: left;
+  margin-right: 8px;   /* ← вот это расстояние */
 }
 
 .toggle-item[open] summary::after {
