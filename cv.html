@@ -5,8 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Резюме и портфолио Паша Акаев</title>
 <style>
+    @font-face {
+        font-family: 'Clear Sans';
+        src: url('./fonts/ClearSans-Regular.woff2') format('woff2'),
+            url('./fonts/ClearSans-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Clear Sans', sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
@@ -42,7 +50,11 @@
     }
 
     .about-me {
-        padding-bottom: 28px;
+        padding-bottom: 0px;
+    }
+
+    .header {
+        padding-bottom: 20px;         
     }
 
     .header img {
@@ -144,6 +156,7 @@
     .gallery-item {
         display: flex;             /* делаем карточку флекс-контейнером */
         flex-direction: row;       /* изображение слева, текст справа */
+        align-items: flex-start;
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -164,24 +177,110 @@
         flex-shrink: 0;            
     }
 
-    .gallery-item p {
+    .gallery-item h1 {
         padding: 15px;
         display: flex;
         align-items: center;       
         margin: 0;
     }
 
+    .gallery-item h2 {
+        padding: 15px;
+        display: flex;
+        align-items: center;       
+        margin: 0;
+    }
+
+    .gallery-item p {
+        padding: 10px;
+        display: flex;
+    }
+
     .job-header {
         display: flex;               
         justify-content: space-between; 
         align-items: center;       
-        margin-bottom: 5px;          
+        margin-bottom: 0px;          
     }
 
     .job-header h4 {
         margin: 0;                   
         font-weight: 600;
-        font-size: 1.1em;
+        font-size: 16px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .experience-block {
+        padding-bottom: 8px;
+    }
+
+    .experience-block h2 {
+        margin-bottom: 8px;
+    }
+
+    .experience-block h3 {
+        margin-top: 4px;
+        margin-bottom: 6px;
+        font-weight: 600;
+    }
+
+    .experience-block .job-header {
+        margin-bottom: 6px;
+    }
+
+    .experience-block h4 {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 550;
+    }
+
+    .experience-block ul {
+        margin-top: 6px;
+        padding-left: 18px;
+    }
+
+    .experience-block li {
+        margin-bottom: 4px;
+    }
+
+    .project-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        column-gap: 12px;
+        row-gap: 4px;
+        width: 100%;
+        padding: 0px 10px;
+    }
+
+    .project-header h3 {
+        grid-column: 1 / -1; /* первая строка — на всю ширину */
+        margin: 0;
+        font-size: 18px;
+        font-weight: 510;
+    }
+
+    .project-header h4 {
+        grid-column: 1 / 2; /* вторая строка слева */
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .project-year {
+        grid-column: 2 / 3; /* вторая строка справа */
+        white-space: nowrap;
+        font-weight: 500;
+        text-align: right;
+    }
+
+    .gallery-item:hover h3 {
+        text-decoration: underline;
+    }
+
+    .gallery-item:hover {
+        text-decoration: none;
     }
 
     /* Адаптив для маленьких экранов */
@@ -199,7 +298,7 @@
         <div class="grid">
             <div class="left-column">
                 <div class="about-me">
-                    <img style="height: 180px; border-radius: 5%;" src="assets/images/face.jpg" alt="Паша Акаев">
+                    <img style="height: 210px; border-radius: 5%;" src="assets/images/face.jpg" alt="Паша Акаев">
                 </div>
             </div>
             <div class="right-column">
@@ -264,8 +363,8 @@
                 <h2>Образование</h2>
                 <p>РГУ им. А.Н. Косыгина</p>
                 <ul>
-                    <li>Бакалавриат (2016–2020) — Информатика и вычислительная техника</li>
-                    <li>Магистратура (2020–2022) — Информационные системы и технологии</li>
+                    <li>Бакалавриат (2016–2020) <br>Информатика и вычислительная техника</li>
+                    <li>Магистратура (2020–2022) <br>Информационные системы и технологии</li>
                 </ul>
             </div>
 
@@ -277,12 +376,12 @@
 
         <!-- Правая колонка -->
         <div class="right-column">
-            <div class="skills-block">
+            <div class="experience-block">
                 <h2>Опыт работы</h2>
                 <h3>Консультант BI</h3>
                 <div class="job-header">
                     <h4>АО «РАМАКС Интернейшнл» (Москва)</h4>
-                    <h4>2021–2025</h4>
+                    <h4 style="font-weight: 500;">2021–2025</h4>
                 </div>
                 <ul>
                     <li>Разработка и развитие BI-решений для бизнеса</li>
@@ -297,24 +396,54 @@
                 <div class="gallery">
                     <a href="projects/hr_rop.html" class="gallery-item">
                         <img src="assets/images/vacation.jpg" alt="HR-Аналитика">
-                        <p>HR-аналитическая система (Visiology v3)</p>
+                        <div class="project-header">
+                            <h3>HR-аналитическая система</h3>
+                            <h4>Внутренний проект РАМАКС</h4>
+                            <span class="project-year">2024-2025</span>
+                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (HR-аналитика)</h4>
+                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v3</h4>
+                        </div>
                     </a>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/300x250?text=Project+2" alt="Retail">
-                        <p>Демонстрационные проекты (Visiology v2)</p>
-                    </div>
-                    <div class="gallery-item">
+                    <a href="projects/retail.html" class="gallery-item">
+                        <img src="assets/images/retail.png" alt="Retail">
+                        <div class="project-header">
+                            <h3>Демонстрационные проекты</h3>
+                            <h4>Пресейловые активности РАМАКС</h4>
+                            <span class="project-year">2023-2024</span>
+                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (пресейл)</h4>
+                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v2</h4>
+                        </div>
+                    </a>
+                    <a href="projects/data_health.html" class="gallery-item">
                         <img src="assets/images/data_health.png" alt="Data Health">
-                        <p>Мониторинг здоровья данных (LuxMS BI)</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/vacation.jpg" alt="Рег. отчетность">
-                        <p>Разработка регламентных отчетов (Форсайт АП)</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/vacation.jpg" alt="Поддержка">
-                        <p>Корпоративные BI-системы (SAP BW / BO)</p>
-                    </div>
+                        <div class="project-header">
+                            <h3>Мониторинг здоровья данных</h3>
+                            <h4>ПАО Новатэк</h4>
+                            <span class="project-year">2025</span>
+                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (мониторинг данных и BI-системы)</h4>
+                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> LuxMS BI</h4>
+                        </div>
+                    </a>
+                    <a href="projects/forsight.html" class="gallery-item">
+                        <img src="assets/images/forsight.png" alt="Рег. отчетность">
+                        <div class="project-header">
+                            <h3>Разработка регламентных отчетов</h3>
+                            <h4>ПАО Аэрофлот</h4>
+                            <span class="project-year">2025</span>
+                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (Реграментные отчеты)</h4>
+                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Форсайт АП</h4>
+                        </div>
+                    </a>
+                    <a href="projects/segeja.html" class="gallery-item">
+                        <img src="assets/images/sap.png" alt="Поддержка">
+                        <div class="project-header">
+                            <h3>Корпоративные BI-системы</h3>
+                            <h4>ПАО Аэрофлот / ПАО «Сегежа Групп»</h4>
+                            <span class="project-year">2022-2023</span>
+                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-Консультант (НалМон, ПИР, поддержка)</h4>
+                            <h4 style="font-size: 14px;"><strong>Инструменты:</strong> SAP BW / BO</h4>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
