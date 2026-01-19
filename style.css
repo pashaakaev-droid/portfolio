@@ -1,9 +1,8 @@
-
 /* Подключаем Clear Sans */
 @font-face {
   font-family: 'Clear Sans';
   src: url('./fonts/ClearSans-Regular.woff2') format('woff2'),
-       url('./fonts/ClearSans-Regular.woff') format('woff');
+    url('./fonts/ClearSans-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -29,15 +28,15 @@ body {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px;
 }
 
 .container-header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 20px;
 }
 
 .hero {
@@ -65,12 +64,13 @@ body {
 }
 
 .toggles {
-  margin: 10px  0px;
+  margin: 10px 0px;
   padding: 0 0px;
 }
 
 .toggle-item {
-  background: #C2D7F2;;
+  background: #C2D7F2;
+  ;
   border-radius: 12px;
   margin-bottom: 16px;
   overflow: hidden;
@@ -100,7 +100,8 @@ body {
 .toggle-item summary::after {
   content: "▸";
   float: left;
-  margin-right: 8px;   /* ← вот это расстояние */
+  margin-right: 8px;
+  /* ← вот это расстояние */
 }
 
 .toggle-item[open] summary::after {

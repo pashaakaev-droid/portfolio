@@ -1,454 +1,488 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Резюме Паша Акаев</title>
-<style>
-    @font-face {
-        font-family: 'Clear Sans';
-        src: url('./fonts/ClearSans-Regular.woff2') format('woff2'),
-            url('./fonts/ClearSans-Regular.woff') format('woff');
-        font-weight: 400;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'Clear Sans', sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
-        color: #333;
-    }
-    h1, h2, h3 {
-        color: #222;
-        margin-top: 0;
-    }
-    h1 {
-        font-size: 2em;
-        margin-bottom: 5px;
-    }
-    h2 {
-        border-bottom: 2px solid #eee;
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-        font-size: 1.4em;
-    }
-    p, li {
-        margin: 5px 0;
-    }
-    ul {
-        padding-left: 20px;
-    }
-    a {
-        color: #0066cc;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-
-    .about-me {
-        padding-bottom: 0px;
-    }
-
-    .header {
-        padding-bottom: 20px;         
-    }
-
-    .header img {
-        display: block;          
-    }
-
-    .header .right-column .about-me {
-        margin-top: 0;
-    }
-
-    .header h1 {
-        line-height: 1;          
-    }
-
-    .job-title {
-        position: relative;
-        padding-bottom: 12px;     
-        margin-bottom: 0;
-    }
-
-    .job-title::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;            
-        height: 4px;  
-        border-radius: 2px; 
-        background-color: #444      
-    }
-
-    .contacts {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* две колонки */
-        gap: 20px 40px;
-        margin-top: 20px;
-    }
-
-    .contacts-column {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 0.95em;
-        color: #333;
-    }
-
-    .contact-item img {
-        width: 18px;
-        height: 18px;
-        opacity: 0.8;
-    }
-
-    .contact-item a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .contact-item a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 30px;
-        background: #fff;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        border-radius: 8px;
-    }
-    .grid {
-        display: grid;
-        grid-template-columns: 370px 1fr; /* две колонки */
-        gap: 20px;
-    }
-    .left-column {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .right-column {
-        display: flex;
-        margin-left: 30px;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    /* Галерея проектов */
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-        gap: 15px;
-    }
-    .gallery-item {
-        display: flex;             /* делаем карточку флекс-контейнером */
-        flex-direction: row;       /* изображение слева, текст справа */
-        align-items: flex-start;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-        background: #f5f5f5;
-        text-decoration: none;     /* чтобы ссылки не подчеркивались */
-        color: inherit;
-    }
-
-    .gallery-item:hover {
-        transform: translateY(-5px);
-    }
-
-    .gallery-item img {
-        width: 300px;              
-        height: 150px;             
-        object-fit: cover;
-        flex-shrink: 0;            
-    }
-
-    .gallery-item h1 {
-        padding: 15px;
-        display: flex;
-        align-items: center;       
-        margin: 0;
-    }
-
-    .gallery-item h2 {
-        padding: 15px;
-        display: flex;
-        align-items: center;       
-        margin: 0;
-    }
-
-    .gallery-item p {
-        padding: 10px;
-        display: flex;
-    }
-
-    .job-header {
-        display: flex;               
-        justify-content: space-between; 
-        align-items: center;       
-        margin-bottom: 0px;          
-    }
-
-    .job-header h4 {
-        margin: 0;                   
-        font-weight: 600;
-        font-size: 16px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-    }
-
-    .experience-block {
-        padding-bottom: 8px;
-    }
-
-    .experience-block h2 {
-        margin-bottom: 8px;
-    }
-
-    .experience-block h3 {
-        margin-top: 4px;
-        margin-bottom: 6px;
-        font-weight: 600;
-    }
-
-    .experience-block .job-header {
-        margin-bottom: 6px;
-    }
-
-    .experience-block h4 {
-        margin: 0;
-        font-size: 15px;
-        font-weight: 550;
-    }
-
-    .experience-block ul {
-        margin-top: 6px;
-        padding-left: 18px;
-    }
-
-    .experience-block li {
-        margin-bottom: 4px;
-    }
-
-    .project-header {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto auto;
-        column-gap: 12px;
-        row-gap: 4px;
-        width: 100%;
-        padding: 0px 10px;
-    }
-
-    .project-header h3 {
-        grid-column: 1 / -1; /* первая строка — на всю ширину */
-        margin: 0;
-        font-size: 18px;
-        font-weight: 510;
-    }
-
-    .project-header h4 {
-        grid-column: 1 / 2; /* вторая строка слева */
-        margin: 0;
-        font-size: 16px;
-        font-weight: 500;
-    }
-
-    .project-year {
-        grid-column: 2 / 3; /* вторая строка справа */
-        white-space: nowrap;
-        font-weight: 500;
-        text-align: right;
-    }
-
-    .gallery-item:hover h3 {
-        text-decoration: underline;
-    }
-
-    .gallery-item:hover {
-        text-decoration: none;
-    }
-
-    /* Адаптив для маленьких экранов */
-    @media (max-width: 768px) {
-        .grid {
-            grid-template-columns: 1fr;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме Паша Акаев</title>
+    <style>
+        @font-face {
+            font-family: 'Clear Sans';
+            src: url('./fonts/ClearSans-Regular.woff2') format('woff2'),
+                url('./fonts/ClearSans-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
         }
-    }
-</style>
+
+        body {
+            font-family: 'Clear Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #222;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        p,
+        li {
+            margin: 5px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .about-me {
+            padding-bottom: 0px;
+        }
+
+        .header {
+            padding-bottom: 20px;
+        }
+
+        .header img {
+            display: block;
+        }
+
+        .header .right-column .about-me {
+            margin-top: 0;
+        }
+
+        .header h1 {
+            line-height: 1;
+        }
+
+        .job-title {
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 0;
+        }
+
+        .job-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            background-color: #444
+        }
+
+        .contacts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* две колонки */
+            gap: 20px 40px;
+            margin-top: 20px;
+        }
+
+        .contacts-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        .contact-item img {
+            width: 18px;
+            height: 18px;
+            opacity: 0.8;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 370px 1fr;
+            /* две колонки */
+            gap: 20px;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-column {
+            display: flex;
+            margin-left: 30px;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Галерея проектов */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            display: flex;
+            /* делаем карточку флекс-контейнером */
+            flex-direction: row;
+            /* изображение слева, текст справа */
+            align-items: flex-start;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background: #f5f5f5;
+            text-decoration: none;
+            /* чтобы ссылки не подчеркивались */
+            color: inherit;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 300px;
+            height: 150px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .gallery-item h1 {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .gallery-item h2 {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .gallery-item p {
+            padding: 10px;
+            display: flex;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0px;
+        }
+
+        .job-header h4 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 16px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .experience-block {
+            padding-bottom: 8px;
+        }
+
+        .experience-block h2 {
+            margin-bottom: 8px;
+        }
+
+        .experience-block h3 {
+            margin-top: 4px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .experience-block .job-header {
+            margin-bottom: 6px;
+        }
+
+        .experience-block h4 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 550;
+        }
+
+        .experience-block ul {
+            margin-top: 6px;
+            padding-left: 18px;
+        }
+
+        .experience-block li {
+            margin-bottom: 4px;
+        }
+
+        .project-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto;
+            column-gap: 12px;
+            row-gap: 4px;
+            width: 100%;
+            padding: 0px 10px;
+        }
+
+        .project-header h3 {
+            grid-column: 1 / -1;
+            /* первая строка — на всю ширину */
+            margin: 0;
+            font-size: 18px;
+            font-weight: 510;
+        }
+
+        .project-header h4 {
+            grid-column: 1 / 2;
+            /* вторая строка слева */
+            margin: 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .project-year {
+            grid-column: 2 / 3;
+            /* вторая строка справа */
+            white-space: nowrap;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .gallery-item:hover h3 {
+            text-decoration: underline;
+        }
+
+        .gallery-item:hover {
+            text-decoration: none;
+        }
+
+        /* Адаптив для маленьких экранов */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="header">
-        <div class="grid">
-            <div class="left-column">
-                <div class="about-me">
-                    <img style="height: 210px; border-radius: 5%;" src="assets/images/face.jpg" alt="Паша Акаев">
+    <div class="container">
+        <div class="header">
+            <div class="grid">
+                <div class="left-column">
+                    <div class="about-me">
+                        <img style="height: 210px; border-radius: 5%;" src="assets/images/face.jpg" alt="Паша Акаев">
+                    </div>
                 </div>
-            </div>
-            <div class="right-column">
-                <div class="about-me">
-                    <h1 style="font-size: 74px; margin-top: 0px;">
-                        <span style="font-weight: 400;">Паша</span> 
-                        <span style="font-weight: 700;">Акаев</span>
-                    </h1>
-                    <h3 class="job-title" style="font-size: 1.2em; font-weight: 400; color: #555;">BI Аналитик · BI Разработчик</h3>
-                    <div class="contacts">
-                        <div class="contacts-column">
-                            <div class="contact-item">
-                                <img style="height: 20px;" src="assets/icons/phone.png" alt="phone">
-                                <span>+7 (929) 880-01-70</span>
+                <div class="right-column">
+                    <div class="about-me">
+                        <h1 style="font-size: 74px; margin-top: 0px;">
+                            <span style="font-weight: 400;">Паша</span>
+                            <span style="font-weight: 700;">Акаев</span>
+                        </h1>
+                        <h3 class="job-title" style="font-size: 1.2em; font-weight: 400; color: #555;">BI Аналитик · BI
+                            Разработчик</h3>
+                        <div class="contacts">
+                            <div class="contacts-column">
+                                <div class="contact-item">
+                                    <img style="height: 20px;" src="assets/icons/phone.png" alt="phone">
+                                    <span>+7 (929) 880-01-70</span>
+                                </div>
+
+                                <div class="contact-item">
+                                    <img style="height: 20px;" src="assets/icons/whatsapp.png" alt="phone">
+                                    <span>+7 (915) 229-30-94</span>
+                                </div>
                             </div>
 
-                            <div class="contact-item">
-                                <img style="height: 20px;" src="assets/icons/whatsapp.png" alt="phone">
-                                <span>+7 (915) 229-30-94</span>
-                            </div>
-                        </div>
+                            <div class="contacts-column">
+                                <div class="contact-item">
+                                    <img style="height: 20px;" src="assets/icons/mail.png" alt="email">
+                                    <a href="mailto:pasha.akaev@gmail.com">pasha.akaev@gmail.com</a>
+                                </div>
 
-                        <div class="contacts-column">
-                            <div class="contact-item">
-                                <img style="height: 20px;" src="assets/icons/mail.png" alt="email">
-                                <a href="mailto:pasha.akaev@gmail.com">pasha.akaev@gmail.com</a>
-                            </div>
-
-                            <div class="contact-item">
-                                <img style="height: 20px;" src="assets/icons/telegram.png" alt="telegram">
-                                <a href="https://t.me/akaevp">@akaevp</a>
+                                <div class="contact-item">
+                                    <img style="height: 20px;" src="assets/icons/telegram.png" alt="telegram">
+                                    <a href="https://t.me/akaevp">@akaevp</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="grid">
-        <!-- Левая колонка -->
-        <div class="left-column">
-            <div class="about-me">
-                <h2>Обо мне</h2>
-                <p>BI аналитик с опытом построения аналитических систем и дашбордов для HR и бизнеса в крупных компаниях. Специализируюсь на разработке и автоматизации BI отчетности, регламентных отчетов, построении витрин данных и аналитике на основе SQL и BI-систем. Имею опыт самостоятельной реализации проектов end-to-end: от сбора требований до внедрения и поддержки.</p>
-            </div>
-
-            <div class="skills-block">
-                <h2>Ключевые компетенции</h2>
-                <ul>
-                    <li>BI: Visiology, Форсайт, LuxMS BI, SAP BI</li>
-                    <li>Кастомизация виджетов, визуализаций, фильтров, параметров отображения и сценариев</li>
-                    <li>SQL: сложные запросы, CTE, оконные функции, оптимизация (PostgreSQL)</li>
-                    <li>Проектирование витрин данных, основы DWH и ETL</li>
-                    <li>Сбор и формализация требований, взаимодействие с бизнесом и IT</li>
-                    <li>Подготовка аналитических презентаций и выводов для бизнеса</li>
-                    <li>Контроль качества данных (полнота, консистентность, аномалии)</li>
-                </ul>
-            </div>
-            
-            <div class="education">
-                <h2>Образование</h2>
-                <p>РГУ им. А.Н. Косыгина</p>
-                <ul>
-                    <li>Бакалавриат (2016–2020) <br>Информатика и вычислительная техника</li>
-                    <li>Магистратура (2020–2022) <br>Информационные системы и технологии</li>
-                </ul>
-            </div>
-
-            <div class="additional-training">
-                <h2>Дополнительное обучение</h2>
-                <p>Вендорские курсы BI-платформ (Visiology, TURBO, SAP)</p>
-            </div>
-        </div>
-
-        <!-- Правая колонка -->
-        <div class="right-column">
-            <div class="experience-block">
-                <h2>Опыт работы</h2>
-                <h3>BI Аналитик · BI Разработчик · BI Консультант</h3>
-                <div class="job-header">
-                    <h4>АО «РАМАКС Интернейшнл» (Москва)</h4>
-                    <h4 style="font-weight: 500;">2021–2025</h4>
+        <div class="grid">
+            <!-- Левая колонка -->
+            <div class="left-column">
+                <div class="about-me">
+                    <h2>Обо мне</h2>
+                    <p>BI аналитик с опытом построения аналитических систем и дашбордов для HR и бизнеса в крупных
+                        компаниях. Специализируюсь на разработке и автоматизации BI отчетности, регламентных отчетов,
+                        построении витрин данных и аналитике на основе SQL и BI-систем. Имею опыт самостоятельной
+                        реализации проектов end-to-end: от сбора требований до внедрения и поддержки.</p>
                 </div>
-                <ul>
-                    <li>Разработка и развитие BI-решений для бизнеса</li>
-                    <li>Сбор требований от заказчиков, формирование аналитических гипотез</li>
-                    <li>Проектирование моделей данных и витрин в БД</li>
-                    <li>Автоматизация отчетности и снижение доли ручных операций</li>
-                    <li>Участие в пресейлах и демонстрации аналитических решений</li>
-                </ul>
-            </div>
-            <div class="projects">
-                <h2>Проектный опыт</h2>
-                <div class="gallery">
-                    <a href="projects/hr_rop.html" class="gallery-item">
-                        <img src="assets/images/vacation.jpg" alt="HR-Аналитика">
-                        <div class="project-header">
-                            <h3>HR-аналитическая система</h3>
-                            <h4>Внутренний проект РАМАКС</h4>
-                            <span class="project-year">2024-2025</span>
-                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (HR-аналитика)</h4>
-                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v3</h4>
-                        </div>
-                    </a>
-                    <a href="projects/retail.html" class="gallery-item">
-                        <img src="assets/images/vis2.png" alt="Retail">
-                        <div class="project-header">
-                            <h3>Демонстрационные проекты</h3>
-                            <h4>Пресейловые активности РАМАКС</h4>
-                            <span class="project-year">2023-2024</span>
-                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (Пресейл)</h4>
-                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v2</h4>
-                        </div>
-                    </a>
-                    <a href="projects/data_health.html" class="gallery-item">
-                        <img src="assets/images/dth.jpg" alt="Data Health">
-                        <div class="project-header">
-                            <h3>Мониторинг здоровья данных</h3>
-                            <h4>ПАО Новатэк</h4>
-                            <span class="project-year">2025</span>
-                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (Мониторинг данных)</h4>
-                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> LuxMS BI</h4>
-                        </div>
-                    </a>
-                    <a href="projects/forsight.html" class="gallery-item">
-                        <img src="assets/images/forsight.png" alt="Рег. отчетность">
-                        <div class="project-header">
-                            <h3>Разработка регламентных отчетов</h3>
-                            <h4>ПАО Аэрофлот</h4>
-                            <span class="project-year">2025</span>
-                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик (Регламентные отчеты)</h4>
-                            <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Форсайт АП</h4>
-                        </div>
-                    </a>
-                    <a href="projects/segeja.html" class="gallery-item">
-                        <img src="assets/images/sap.png" alt="Поддержка">
-                        <div class="project-header">
-                            <h3>Корпоративные BI-системы</h3>
-                            <h4>ПАО Аэрофлот / ПАО «Сегежа Групп»</h4>
-                            <span class="project-year">2022-2023</span>
-                            <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-Консультант (НалМон, ПИР, поддержка)</h4>
-                            <h4 style="font-size: 14px;"><strong>Инструменты:</strong> SAP BW / BO</h4>
-                        </div>
-                    </a>
+
+                <div class="skills-block">
+                    <h2>Ключевые компетенции</h2>
+                    <ul>
+                        <li>BI: Visiology, Форсайт, LuxMS BI, SAP BI</li>
+                        <li>Кастомизация виджетов, визуализаций, фильтров, параметров отображения и сценариев</li>
+                        <li>SQL: сложные запросы, CTE, оконные функции, оптимизация (PostgreSQL)</li>
+                        <li>Проектирование витрин данных, основы DWH и ETL</li>
+                        <li>Сбор и формализация требований, взаимодействие с бизнесом и IT</li>
+                        <li>Подготовка аналитических презентаций и выводов для бизнеса</li>
+                        <li>Контроль качества данных (полнота, консистентность, аномалии)</li>
+                    </ul>
+                </div>
+
+                <div class="education">
+                    <h2>Образование</h2>
+                    <p>РГУ им. А.Н. Косыгина</p>
+                    <ul>
+                        <li>Бакалавриат (2016–2020) <br>Информатика и вычислительная техника</li>
+                        <li>Магистратура (2020–2022) <br>Информационные системы и технологии</li>
+                    </ul>
+                </div>
+
+                <div class="additional-training">
+                    <h2>Дополнительное обучение</h2>
+                    <p>Вендорские курсы BI-платформ (Visiology, TURBO, SAP)</p>
                 </div>
             </div>
+
+            <!-- Правая колонка -->
+            <div class="right-column">
+                <div class="experience-block">
+                    <h2>Опыт работы</h2>
+                    <h3>BI Аналитик · BI Разработчик · BI Консультант</h3>
+                    <div class="job-header">
+                        <h4>АО «РАМАКС Интернейшнл» (Москва)</h4>
+                        <h4 style="font-weight: 500;">2021–2025</h4>
+                    </div>
+                    <ul>
+                        <li>Разработка и развитие BI-решений для бизнеса</li>
+                        <li>Сбор требований от заказчиков, формирование аналитических гипотез</li>
+                        <li>Проектирование моделей данных и витрин в БД</li>
+                        <li>Автоматизация отчетности и снижение доли ручных операций</li>
+                        <li>Участие в пресейлах и демонстрации аналитических решений</li>
+                    </ul>
+                </div>
+                <div class="projects">
+                    <h2>Проектный опыт</h2>
+                    <div class="gallery">
+                        <a href="projects/hr_rop.html" class="gallery-item">
+                            <img src="assets/images/vacation.jpg" alt="HR-Аналитика">
+                            <div class="project-header">
+                                <h3>HR-аналитическая система</h3>
+                                <h4>Внутренний проект РАМАКС</h4>
+                                <span class="project-year">2024-2025</span>
+                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
+                                    (HR-аналитика)</h4>
+                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v3</h4>
+                            </div>
+                        </a>
+                        <a href="projects/retail.html" class="gallery-item">
+                            <img src="assets/images/vis2.png" alt="Retail">
+                            <div class="project-header">
+                                <h3>Демонстрационные проекты</h3>
+                                <h4>Пресейловые активности РАМАКС</h4>
+                                <span class="project-year">2023-2024</span>
+                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
+                                    (Пресейл)</h4>
+                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v2</h4>
+                            </div>
+                        </a>
+                        <a href="projects/data_health.html" class="gallery-item">
+                            <img src="assets/images/dth.jpg" alt="Data Health">
+                            <div class="project-header">
+                                <h3>Мониторинг здоровья данных</h3>
+                                <h4>ПАО Новатэк</h4>
+                                <span class="project-year">2025</span>
+                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
+                                    (Мониторинг данных)</h4>
+                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> LuxMS BI</h4>
+                            </div>
+                        </a>
+                        <a href="projects/forsight.html" class="gallery-item">
+                            <img src="assets/images/forsight.png" alt="Рег. отчетность">
+                            <div class="project-header">
+                                <h3>Разработка регламентных отчетов</h3>
+                                <h4>ПАО Аэрофлот</h4>
+                                <span class="project-year">2025</span>
+                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
+                                    (Регламентные отчеты)</h4>
+                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Форсайт АП</h4>
+                            </div>
+                        </a>
+                        <a href="projects/segeja.html" class="gallery-item">
+                            <img src="assets/images/sap.png" alt="Поддержка">
+                            <div class="project-header">
+                                <h3>Корпоративные BI-системы</h3>
+                                <h4>ПАО Аэрофлот / ПАО «Сегежа Групп»</h4>
+                                <span class="project-year">2022-2023</span>
+                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-Консультант (НалМон, ПИР,
+                                    поддержка)</h4>
+                                <h4 style="font-size: 14px;"><strong>Инструменты:</strong> SAP BW / BO</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>
