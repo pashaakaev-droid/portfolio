@@ -161,6 +161,13 @@ body {
   margin-top: 20px;
 }
 
+.responsibility-grid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
 /* Мини-карточки */
 .mini-card {
   background: #C2D7F2;
