@@ -3,409 +3,177 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="
-        width=device-width,
-        initial-scale=0.9,
-        maximum-scale=1.2
-    ">
-    <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMZ53BJ0RD"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMZ53BJ0RD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-GMZ53BJ0RD');
+    </script>
 
-            gtag('config', 'G-GMZ53BJ0RD');
-        </script>
+    <script src="script.js"></script>
+    
     <title>Резюме Паша Акаев</title>
-    <style>
-        @font-face {
-            font-family: 'Clear Sans';
-            src: url('./fonts/ClearSans-Regular.woff2') format('woff2'),
-                url('./fonts/ClearSans-Regular.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        body {
-            font-family: 'Clear Sans', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        h1,
-        h2,
-        h3 {
-            color: #222;
-            margin-top: 0;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-
-        p,
-        li {
-            margin: 5px 0;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .about-me {
-            padding-bottom: 0px;
-        }
-
-        .header {
-            padding-bottom: 20px;
-        }
-
-        .header img {
-            display: block;
-        }
-
-        .header .right-column .about-me {
-            margin-top: 0;
-        }
-
-        .header h1 {
-            line-height: 1;
-        }
-
-        .job-title {
-            position: relative;
-            padding-bottom: 12px;
-            margin-bottom: 0;
-        }
-
-        .job-title::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 4px;
-            border-radius: 2px;
-            background-color: #444
-        }
-
-        .contacts {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            /* две колонки */
-            gap: 20px 40px;
-            margin-top: 20px;
-        }
-
-        .contacts-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95em;
-            color: #333;
-        }
-
-        .contact-item img {
-            width: 18px;
-            height: 18px;
-            opacity: 0.8;
-        }
-
-        .contact-item a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 370px 1fr;
-            /* две колонки */
-            gap: 20px;
-        }
-
-        .left-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .right-column {
-            display: flex;
-            margin-left: 30px;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Галерея проектов */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery-item {
-            display: flex;
-            /* делаем карточку флекс-контейнером */
-            flex-direction: row;
-            /* изображение слева, текст справа */
-            align-items: flex-start;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            background: #f5f5f5;
-            text-decoration: none;
-            /* чтобы ссылки не подчеркивались */
-            color: inherit;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-item img {
-            width: 300px;
-            height: 150px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .gallery-item h1 {
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            margin: 0;
-        }
-
-        .gallery-item h2 {
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            margin: 0;
-        }
-
-        .gallery-item p {
-            padding: 10px;
-            display: flex;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0px;
-        }
-
-        .job-header h4 {
-            margin: 0;
-            font-weight: 600;
-            font-size: 16px;
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-
-        .experience-block {
-            padding-bottom: 8px;
-        }
-
-        .experience-block h2 {
-            margin-bottom: 8px;
-        }
-
-        .experience-block h3 {
-            margin-top: 4px;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .experience-block .job-header {
-            margin-bottom: 6px;
-        }
-
-        .experience-block h4 {
-            margin: 0;
-            font-size: 15px;
-            font-weight: 550;
-        }
-
-        .experience-block ul {
-            margin-top: 6px;
-            padding-left: 18px;
-        }
-
-        .experience-block li {
-            margin-bottom: 4px;
-        }
-
-        .project-header {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            grid-template-rows: auto auto;
-            column-gap: 12px;
-            row-gap: 4px;
-            width: 100%;
-            padding: 0px 10px;
-        }
-
-        .project-header h3 {
-            grid-column: 1 / -1;
-            /* первая строка — на всю ширину */
-            margin: 0;
-            font-size: 18px;
-            font-weight: 510;
-        }
-
-        .project-header h4 {
-            grid-column: 1 / 2;
-            /* вторая строка слева */
-            margin: 0;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .project-year {
-            grid-column: 2 / 3;
-            /* вторая строка справа */
-            white-space: nowrap;
-            font-weight: 500;
-            text-align: right;
-        }
-
-        .gallery-item:hover h3 {
-            text-decoration: underline;
-        }
-
-        .gallery-item:hover {
-            text-decoration: none;
-        }
-
-        /* Адаптив для маленьких экранов */
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
 </head>
 
 <body>
 
     <div class="container">
+
+        <!-- Шапка резюме -->
+
         <div class="header">
             <div class="grid">
+
                 <div class="left-column">
                     <div class="about-me">
-                        <img style="height: 210px; border-radius: 5%;" src="assets/images/face.jpg" alt="Паша Акаев">
+                        <img
+                            class="header-photo"
+                            src="assets/images/face.jpg"
+                            alt="Паша Акаев">
                     </div>
                 </div>
+
                 <div class="right-column">
                     <div class="about-me">
-                        <h1 style="font-size: 74px; margin-top: 0px;">
-                            <span style="font-weight: 400;">Паша</span>
-                            <span style="font-weight: 700;">Акаев</span>
-                        </h1>
-                        <h3 class="job-title" style="font-size: 1.2em; font-weight: 400; color: #555;">BI Аналитик · BI
-                            Разработчик</h3>
+
+                        <div class="name-header">
+                            <h1 style="font-size: var(--size-74px); margin-top: 0;">
+                                <span style="font-weight: 400;">Паша</span>
+                                <span style="font-weight: 700;">Акаев</span>
+                            </h1>
+
+                            <a href="assets/resume.pdf"
+                                class="resume-download"
+                                download="Паша_Акаев_Резюме.pdf"
+                                title="Скачать резюме в PDF"
+                                aria-label="Скачать резюме в PDF">
+
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="28"
+                                    height="28"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <h3
+                            class="job-title"
+                            style="font-size: 1.2em; font-weight: 400; color: #555;">
+                            BI Аналитик · BI Разработчик
+                        </h3>
+
                         <div class="contacts">
+
                             <div class="contacts-column">
+
                                 <div class="contact-item">
-                                    <img style="height: 20px;" src="assets/icons/phone.png" alt="phone">
+                                    <img src="assets/icons/phone.png" alt="">
                                     <span>+7 (929) 880-01-70</span>
                                 </div>
 
                                 <div class="contact-item">
-                                    <img style="height: 20px;" src="assets/icons/whatsapp.png" alt="phone">
+                                    <img src="assets/icons/whatsapp.png" alt="">
                                     <span>+7 (915) 229-30-94</span>
                                 </div>
+
                             </div>
 
                             <div class="contacts-column">
+
                                 <div class="contact-item">
-                                    <img style="height: 20px;" src="assets/icons/mail.png" alt="email">
-                                    <a href="mailto:pasha.akaev@gmail.com">pasha.akaev@gmail.com</a>
+                                    <img src="assets/icons/mail.png" alt="">
+                                    <a href="mailto:pasha.akaev@gmail.com">
+                                        pasha.akaev@gmail.com
+                                    </a>
                                 </div>
 
                                 <div class="contact-item">
-                                    <img style="height: 20px;" src="assets/icons/telegram.png" alt="telegram">
-                                    <a href="https://t.me/akaevp">@akaevp</a>
+                                    <img src="assets/icons/telegram.png" alt="">
+                                    <a href="https://t.me/akaevp"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        @akaevp
+                                    </a>
                                 </div>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
+        <!-- Основное содержимое -->
+
         <div class="grid">
+
             <!-- Левая колонка -->
+
             <div class="left-column">
+
                 <div class="about-me">
                     <h2>Обо мне</h2>
-                    <p>BI аналитик с опытом построения аналитических систем и дашбордов для HR и бизнеса в крупных
-                        компаниях. Специализируюсь на разработке и автоматизации BI отчетности, регламентных отчетов,
-                        построении витрин данных и аналитике на основе SQL и BI-систем. Имею опыт самостоятельной
-                        реализации проектов end-to-end: от сбора требований до внедрения и поддержки.</p>
+
+                    <p>
+                        BI аналитик с опытом построения аналитических систем
+                        и дашбордов для HR и бизнеса в крупных компаниях.
+                        Специализируюсь на разработке и автоматизации BI
+                        отчетности, регламентных отчетов, построении витрин
+                        данных и аналитике на основе SQL и BI-систем.
+                        Имею опыт самостоятельной реализации проектов
+                        end-to-end: от сбора требований до внедрения и поддержки.
+                    </p>
                 </div>
 
                 <div class="skills-block">
                     <h2>Ключевые компетенции</h2>
+
                     <ul>
-                        <li>BI: Visiology, Форсайт, LuxMS BI, SAP BI</li>
-                        <li>Кастомизация виджетов, визуализаций, фильтров, параметров отображения и сценариев</li>
-                        <li>SQL: сложные запросы, CTE, оконные функции, оптимизация (PostgreSQL)</li>
-                        <li>Проектирование витрин данных, основы DWH и ETL</li>
-                        <li>Сбор и формализация требований, взаимодействие с бизнесом и IT</li>
-                        <li>Подготовка аналитических презентаций и выводов для бизнеса</li>
-                        <li>Контроль качества данных (полнота, консистентность, аномалии)</li>
+                        <li>BI-платформы: Visiology, Insight BI, LuxMS BI, Форсайт, SAP BI</li>
+                        <li>BI-разработка: создание интерактивных дашбордов, настройка визуализаций, фильтрации, drill-down и навигации</li>
+                        <li>Frontend: JavaScript, HTML, CSS, кастомизация виджетов и адаптивных интерфейсов</li>
+                        <li>SQL: сложные запросы, CTE, оконные функции, агрегации (PostgreSQL, Dremio)</li>
+                        <li>Оптимизация BI-решений: рефакторинг компонентов, сокращение количества запросов, повышение производительности дашбордов</li>
+                        <li>Работа с данными: проектирование витрин данных, основы DWH и ETL, контроль качества и корректности метрик</li>
+                        <li>Сбор и формализация требований: взаимодействие с бизнесом, системными аналитиками, дата-инженерами и разработчиками</li>
+                        <li>Техническая документация: подготовка технических заданий и спецификаций на BI-компоненты и доработки</li>
+                        <li>Python: опыт написания вспомогательных скриптов для автоматизации</li>
                     </ul>
                 </div>
 
                 <div class="education">
                     <h2>Образование</h2>
+
                     <p>РГУ им. А.Н. Косыгина</p>
+
                     <ul>
-                        <li>Бакалавриат (2016–2020) <br>Информатика и вычислительная техника</li>
-                        <li>Магистратура (2020–2022) <br>Информационные системы и технологии</li>
+                        <li>
+                            Бакалавриат (2016–2020)<br>
+                            Информатика и вычислительная техника
+                        </li>
+                        <li>
+                            Магистратура (2020–2022)<br>
+                            Информационные системы и технологии
+                        </li>
                     </ul>
                 </div>
 
@@ -413,17 +181,40 @@
                     <h2>Дополнительное обучение</h2>
                     <p>Вендорские курсы BI-платформ (Visiology, TURBO, SAP)</p>
                 </div>
+
             </div>
 
             <!-- Правая колонка -->
+
             <div class="right-column">
+
                 <div class="experience-block">
                     <h2>Опыт работы</h2>
+
+                    <h3>BI Аналитик · BI Разработчик</h3>
+
+                    <div class="job-header">
+                        <h4>ДИТ Москвы</h4>
+                        <h4 style="font-weight: 500;">2026</h4>
+                    </div>
+
+                    <ul>
+                        <li>Разработка и развитие BI-дашбордов на платформе Insight BI</li>
+                        <li>Кастомизация визуализаций и интерфейсов (JS, HTML, CSS)</li>
+                        <li>Реализация адаптивных интерфейсов для различных устройств и разрешений экранов</li>
+                        <li>Оптимизация производительности дашбордов: рефакторинг компонентов, сокращение количества запросов к витринам</li>
+                        <li>Участие в проектировании витрин данных, проверке корректности показателей и тестировании BI-решений</li>
+                        <li>Подготовка технических заданий для frontend-разработчиков, системных аналитиков и дата-инженеров</li>
+                    </ul>
+                    
+                    
                     <h3>BI Аналитик · BI Разработчик · BI Консультант</h3>
+
                     <div class="job-header">
                         <h4>АО «РАМАКС Интернейшнл» (Москва)</h4>
                         <h4 style="font-weight: 500;">2021–2025</h4>
                     </div>
+
                     <ul>
                         <li>Разработка и развитие BI-решений для бизнеса</li>
                         <li>Сбор требований от заказчиков, формирование аналитических гипотез</li>
@@ -432,69 +223,442 @@
                         <li>Участие в пресейлах и демонстрации аналитических решений</li>
                     </ul>
                 </div>
+
+                <!-- Проектный опыт -->
+
                 <div class="projects">
                     <h2>Проектный опыт</h2>
+
                     <div class="gallery">
-                        <a href="projects/hr_rop.html" class="gallery-item">
-                            <img src="assets/images/vacation.jpg" alt="HR-Аналитика">
-                            <div class="project-header">
-                                <h3>HR-аналитическая система</h3>
-                                <h4>Внутренний проект РАМАКС</h4>
-                                <span class="project-year">2024-2025</span>
-                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
-                                    (HR-аналитика)</h4>
-                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v3</h4>
+
+                        <!-- Проект 1 -->
+
+                        <a href="projects/elections.html"
+                           class="gallery-item"
+                           aria-label="Выборы 2026. Подробнее о проекте">
+
+                            <div class="gallery-image">
+                                <img src="assets/images/elections.jpg"
+                                     alt="Выборы 2026">
+                            </div>
+
+                            <div class="project-content">
+
+                                <div class="gallery-title-wrapper">
+                                    <h3 class="gallery-title">
+                                        Выборы 2026
+                                    </h3>
+
+                                    <span class="nda-tooltip"
+                                        data-tooltip="Демонстрация проекта ограничена условиями NDA"
+                                        tabindex="0"
+                                        aria-label="Демонстрация проекта ограничена условиями NDA">
+                                        <i class="mdi mdi-alert-circle"></i>
+                                    </span>
+                                </div>
+
+                                <div class="project-details">
+
+                                    <div class="project-meta">
+                                        <span class="project-company">
+                                            Аналитическая система для мэрии Москвы
+                                        </span>
+                                        <span class="project-year">2026</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Роль:</strong>
+                                        BI-аналитик / BI-разработчик
+                                    </p>
+
+                                    <p>
+                                        <strong>Инструмент:</strong>
+                                        Insight BI / LuxMS BI
+                                    </p>
+
+                                    <p class="project-description">
+                                        Разработка интерактивных BI-дашбордов полного цикла: кастомизация визуализаций
+                                        , реализация сложной логики взаимодействия с данными и оптимизация производительности.
+                                    </p>
+
+                                </div>
                             </div>
                         </a>
-                        <a href="projects/retail.html" class="gallery-item">
-                            <img src="assets/images/vis2.png" alt="Retail">
-                            <div class="project-header">
-                                <h3>Демонстрационные проекты</h3>
-                                <h4>Пресейловые активности РАМАКС</h4>
-                                <span class="project-year">2023-2024</span>
-                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
-                                    (Пресейл)</h4>
-                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Visiology v2</h4>
+
+                        <!-- Проект 2 -->
+
+                        <a href="projects/mostur.html"
+                           class="gallery-item"
+                           aria-label="Мостуризм">
+
+                            <div class="gallery-image">
+                                <img src="assets/images/russpass.jpg"
+                                     alt="Мостуризм">
+                            </div>
+
+                            <div class="project-content">
+
+                                <div class="gallery-title-wrapper">
+                                    <h3 class="gallery-title">
+                                        Мостуризм
+                                    </h3>
+
+                                    <span class="nda-tooltip"
+                                        data-tooltip="Демонстрация проекта ограничена условиями NDA"
+                                        tabindex="0"
+                                        aria-label="Демонстрация проекта ограничена условиями NDA">
+                                        <i class="mdi mdi-alert-circle"></i>
+                                    </span>
+                                </div>
+
+                                <div class="project-details">
+
+                                    <div class="project-meta">
+                                        <span class="project-company">
+                                            Проект для RUSSPASS
+                                        </span>
+                                        <span class="project-year">2026</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Роль:</strong>
+                                        BI-аналитик / BI-разработчик
+                                    </p>
+
+                                    <p>
+                                        <strong>Инструмент:</strong>
+                                        Insight BI
+                                    </p>
+
+                                    <p class="project-description">
+                                        Разработка адаптивного аналитического дашборда для мониторинга 
+                                        туристических потоков: проектирование интерфейса,
+                                         подготовка требований к витринам данных и интеграция данных в BI-компоненты.
+                                    </p>
+
+                                </div>
                             </div>
                         </a>
-                        <a href="projects/data_health.html" class="gallery-item">
-                            <img src="assets/images/dth.jpg" alt="Data Health">
-                            <div class="project-header">
-                                <h3>Мониторинг здоровья данных</h3>
-                                <h4>ПАО Новатэк</h4>
-                                <span class="project-year">2025</span>
-                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
-                                    (Мониторинг данных)</h4>
-                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> LuxMS BI</h4>
+
+                        <!-- Проект 3 -->
+
+                        <a href="projects/hr_rop.html"
+                           class="gallery-item"
+                           aria-label="HR-аналитическая система. Подробнее о проекте">
+
+                            <div class="gallery-image">
+                                <img src="assets/images/vacation.jpg"
+                                     alt="HR-аналитическая система">
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="gallery-title">
+                                    HR-аналитическая система
+                                </h3>
+
+                                <div class="project-details">
+
+                                    <div class="project-meta">
+                                        <span class="project-company">
+                                            Внутренний проект РАМАКС
+                                        </span>
+                                        <span class="project-year">2024–2025</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Роль:</strong>
+                                        BI-аналитик / BI-разработчик
+                                    </p>
+
+                                    <p>
+                                        <strong>Инструмент:</strong>
+                                        Visiology v3
+                                    </p>
+
+                                    <p class="project-description">
+                                        Разработка HR-аналитической системы
+                                        для мониторинга показателей и
+                                        представления кадровых данных
+                                        в интерактивных дашбордах.
+                                    </p>
+
+                                </div>
                             </div>
                         </a>
-                        <a href="projects/forsight.html" class="gallery-item">
-                            <img src="assets/images/forsight.png" alt="Рег. отчетность">
-                            <div class="project-header">
-                                <h3>Разработка регламентных отчетов</h3>
-                                <h4>ПАО Аэрофлот</h4>
-                                <span class="project-year">2025</span>
-                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-аналитик / BI-разработчик
-                                    (Регламентные отчеты)</h4>
-                                <h4 style="font-size: 14px;"><strong>Инструмент:</strong> Форсайт АП</h4>
+
+                        
+
+                        <!-- Проект 4 -->
+
+                        <a href="projects/retail.html"
+                           class="gallery-item"
+                           aria-label="Демонстрационные проекты">
+
+                            <div class="gallery-image">
+                                <img src="assets/images/vis2.png"
+                                     alt="Демонстрационные BI-проекты">
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="gallery-title">
+                                    Демонстрационные проекты
+                                </h3>
+
+                                <div class="project-details">
+
+                                    <div class="project-meta">
+                                        <span class="project-company">
+                                            Пресейловые активности РАМАКС
+                                        </span>
+                                        <span class="project-year">2023–2024</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Роль:</strong>
+                                        BI-аналитик / BI-разработчик
+                                    </p>
+
+                                    <p>
+                                        <strong>Инструмент:</strong>
+                                        Visiology v2
+                                    </p>
+
+                                    <p class="project-description">
+                                        Подготовка демонстрационных BI-решений
+                                        для презентации возможностей платформы
+                                        и поддержки пресейловых активностей.
+                                    </p>
+
+                                </div>
                             </div>
                         </a>
-                        <a href="projects/support.html" class="gallery-item">
-                            <img src="assets/images/sap.png" alt="Поддержка">
-                            <div class="project-header">
-                                <h3>Поддержка и развитие отчётности</h3>
-                                <h4>ПАО Аэрофлот / ПАО «Сегежа Групп»</h4>
-                                <span class="project-year">2022-2023</span>
-                                <h4 style="font-size: 14px;"><strong>Роль:</strong> BI-Консультант (НалМон, ПИР,
-                                    поддержка)</h4>
-                                <h4 style="font-size: 14px;"><strong>Инструменты:</strong> SAP BW / BO</h4>
+
+                        <!-- Проект 5 -->
+
+                        <a href="projects/data_health.html"
+                           class="gallery-item"
+                           aria-label="Мониторинг здоровья данных">
+
+                            <div class="gallery-image">
+                                <img src="assets/images/dth.jpg"
+                                     alt="Мониторинг здоровья данных">
+                            </div>
+
+                            <div class="project-content">
+
+
+                                <div class="gallery-title-wrapper">
+                                    <h3 class="gallery-title">
+                                        Мониторинг здоровья данных
+                                    </h3>
+
+                                    <span class="nda-tooltip"
+                                        data-tooltip="Демонстрация проекта ограничена условиями NDA"
+                                        tabindex="0"
+                                        aria-label="Демонстрация проекта ограничена условиями NDA">
+                                        <i class="mdi mdi-alert-circle"></i>
+                                    </span>
+                                </div>
+
+                                <div class="project-details">
+
+                                    <div class="project-meta">
+                                        <span class="project-company">
+                                            ПАО «НОВАТЭК»
+                                        </span>
+                                        <span class="project-year">2025</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Роль:</strong>
+                                        BI-аналитик / BI-разработчик
+                                    </p>
+
+                                    <p>
+                                        <strong>Инструмент:</strong>
+                                        LuxMS BI
+                                    </p>
+
+                                    <p class="project-description">
+                                        Разработка BI-инструмента для
+                                        мониторинга качества данных,
+                                        выявления отклонений и контроля
+                                        состояния информационных систем.
+                                    </p>
+
+                                </div>
                             </div>
                         </a>
+
+                        <!-- Проект 6 -->
+
+                        <a href="projects/forsight.html"
+                           class="gallery-item"
+                           aria-label="Разработка регламентных отчетов">
+
+                            <div class="gallery-image">
+                                <img src="assets/images/forsight.png"
+                                     alt="Регламентная отчетность">
+                            </div>
+
+                            <div class="project-content">
+
+                                
+                                <div class="gallery-title-wrapper">
+                                    <h3 class="gallery-title">
+                                        Разработка регламентных отчетов
+                                    </h3>
+
+                                    <span class="nda-tooltip"
+                                        data-tooltip="Демонстрация проекта ограничена условиями NDA"
+                                        tabindex="0"
+                                        aria-label="Демонстрация проекта ограничена условиями NDA">
+                                        <i class="mdi mdi-alert-circle"></i>
+                                    </span>
+                                </div>
+
+                                <div class="project-details">
+
+                                    <div class="project-meta">
+                                        <span class="project-company">
+                                            ПАО «Аэрофлот»
+                                        </span>
+                                        <span class="project-year">2025</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Роль:</strong>
+                                        BI-аналитик / BI-разработчик
+                                    </p>
+
+                                    <p>
+                                        <strong>Инструмент:</strong>
+                                        Форсайт АП
+                                    </p>
+
+                                    <p class="project-description">
+                                        Разработка и настройка регламентной
+                                        отчетности с использованием платформы
+                                        «Форсайт. Аналитическая платформа».
+                                    </p>
+
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Проект 7 -->
+
+                        <a href="projects/support.html"
+                           class="gallery-item"
+                           aria-label="Поддержка и развитие отчетности">
+
+                            <div class="gallery-image">
+                                <img src="assets/images/sap.png"
+                                     alt="Поддержка и развитие отчетности">
+                            </div>
+
+                            <div class="project-content">
+
+                                <div class="gallery-title-wrapper">
+                                    <h3 class="gallery-title">
+                                        Поддержка и развитие отчётности
+                                    </h3>
+
+                                    <span class="nda-tooltip"
+                                        data-tooltip="Демонстрация проекта ограничена условиями NDA"
+                                        tabindex="0"
+                                        aria-label="Демонстрация проекта ограничена условиями NDA">
+                                        <i class="mdi mdi-alert-circle"></i>
+                                    </span>
+                                </div>
+
+                                <div class="project-details">
+
+                                    <div class="project-meta">
+                                        <span class="project-company">
+                                            Аэрофлот / Сегежа Групп
+                                        </span>
+                                        <span class="project-year">2022–2023</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Роль:</strong>
+                                        BI-консультант
+                                    </p>
+
+                                    <p>
+                                        <strong>Инструменты:</strong>
+                                        SAP BW / BO
+                                    </p>
+
+                                    <p class="project-description">
+                                        Поддержка существующих отчетов,
+                                        сопровождение аналитических решений
+                                        и развитие корпоративной отчетности.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+
+    <script>
+        /*
+         * На сенсорных экранах первое нажатие раскрывает карточку,
+         * повторное нажатие открывает страницу проекта.
+         */
+
+        document.querySelectorAll('.gallery-item').forEach(function (card) {
+
+            card.addEventListener('click', function (event) {
+
+                if (
+                    window.matchMedia(
+                        '(hover: hover) and (pointer: fine)'
+                    ).matches
+                ) {
+                    return;
+                }
+
+                if (!card.classList.contains('is-open')) {
+                    event.preventDefault();
+
+                    document.querySelectorAll('.gallery-item.is-open')
+                        .forEach(function (openCard) {
+                            openCard.classList.remove('is-open');
+                        });
+
+                    card.classList.add('is-open');
+                }
+            });
+
+        });
+
+        /*
+         * Закрываем раскрытую карточку при нажатии за её пределами.
+         */
+
+        document.addEventListener('click', function (event) {
+
+            if (!event.target.closest('.gallery-item')) {
+
+                document.querySelectorAll('.gallery-item.is-open')
+                    .forEach(function (card) {
+                        card.classList.remove('is-open');
+                    });
+
+            }
+
+        });
+    </script>
 
 </body>
 

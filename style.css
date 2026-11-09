@@ -1,220 +1,1165 @@
-/* Подключаем Clear Sans */
-@font-face {
-  font-family: 'Clear Sans';
-  src: url('./fonts/ClearSans-Regular.woff2') format('woff2'),
-    url('./fonts/ClearSans-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
+
+/* ==================================================
+   ПЕРЕМЕННЫЕ РАЗМЕРОВ
+   Базовый размер: 1rem = 16px
+   ================================================== */
+
+:root {
+    --size-1px: 0.0625rem;
+    --size-2px: 0.125rem;
+    --size-3px: 0.1875rem;
+    --size-4px: 0.25rem;
+    --size-5px: 0.3125rem;
+    --size-6px: 0.375rem;
+    --size-7px: 0.4375rem;
+    --size-8px: 0.5rem;
+    --size-9px: 0.5625rem;
+    --size-10px: 0.625rem;
+    --size-12px: 0.75rem;
+    --size-13px: 0.8125rem;
+    --size-14px: 0.875rem;
+    --size-15px: 0.9375rem;
+    --size-16px: 1rem;
+    --size-17px: 1.0625rem;
+    --size-18px: 1.125rem;
+    --size-20px: 1.25rem;
+    --size-25px: 1.5625rem;
+    --size-30px: 1.875rem;
+    --size-40px: 2.5rem;
+    --size-45px: 2.8125rem;
+    --size-48px: 3rem;
+    --size-50px: 3.125rem;
+    --size-55px: 3.4375rem;
+    --size-74px: 4.625rem;
+    --size-100px: 6.25rem;
+    --size-110px: 6.875rem;
+    --size-115px: 7.1875rem;
+    --size-130px: 8.1rem;
+    --size-150px: 9.375rem;
+    --size-180px: 11.25rem;
+    --size-200px: 12.5rem;
+    --size-210px: 13.125rem;
+    --size-220px: 13.75rem;
+    --size-300px: 18.75rem;
+    --size-350px: 21.875rem;
+    --size-370px: 23.125rem;
+    --size-1200px: 75rem;
+
+    --font-base: 'Clear Sans', sans-serif;
+
+    --color-background: #f9f9f9;
+    --color-surface: #fff;
+    --color-card: #f5f5f5;
+    --color-image-placeholder: #e8e8e8;
+    --color-text: #333;
+    --color-heading: #222;
+    --color-muted: #555;
+    --color-secondary: #777;
+    --color-border: #eee;
+    --color-card-border: #e5e5e5;
+    --color-accent: #0066cc;
+
+    --radius-small: var(--size-2px);
+    --radius-medium: var(--size-5px);
+    --radius-large: var(--size-8px);
+    --radius-card: var(--size-10px);
+
+    --shadow-container: 0 var(--size-4px) var(--size-10px)
+        rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 var(--size-3px) var(--size-12px)
+        rgba(0, 0, 0, 0.09);
+    --shadow-card-hover: 0 var(--size-8px) var(--size-25px)
+        rgba(0, 0, 0, 0.16);
+
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.35s ease;
 }
 
-/* Применяем ко всему сайту */
-body {
-  font-family: 'Clear Sans', sans-serif;
+
+/* ==================================================
+   ШРИФТ
+   ================================================== */
+
+@font-face {
+    font-family: 'Clear Sans';
+    src:
+        url('./fonts/ClearSans.woff2') format('woff2'),
+        url('./fonts/ClearSans.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
+
+
+/* ==================================================
+   БАЗОВЫЕ СТИЛИ
+   ================================================== */
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-  background: #010A26;
-  color: #e5e7eb;
-  line-height: 1.6;
-  margin-top: 50px;
-  margin-bottom: 30px;
+    font-family: var(--font-base);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
+
+h1,
+h2,
+h3 {
+    color: var(--color-heading);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: var(--size-5px);
+}
+
+h2 {
+    border-bottom: var(--size-2px) solid var(--color-border);
+    padding-bottom: var(--size-5px);
+    margin-bottom: var(--size-15px);
+    font-size: 1.4em;
+}
+
+p,
+li {
+    margin: var(--size-5px) 0;
+}
+
+ul {
+    padding-left: var(--size-20px);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==================================================
+   ОСНОВНОЙ КОНТЕЙНЕР
+   ================================================== */
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 20px;
+    max-width: var(--size-1200px);
+    margin: var(--size-40px) auto;
+    padding: var(--size-30px);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-container);
+    border-radius: var(--radius-large);
 }
 
-.container-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0px 20px;
+
+/* ==================================================
+   СЕТКА РЕЗЮМЕ
+   ================================================== */
+
+.grid {
+    display: grid;
+    grid-template-columns: var(--size-370px) minmax(0, 1fr);
+    gap: var(--size-20px);
 }
 
-.hero {
-  padding: 80px 20px;
-  text-align: center;
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-20px);
+    min-width: 0;
 }
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-20px);
+    margin-left: var(--size-30px);
+    min-width: 0;
+}
+
+
+/* ==================================================
+   ШАПКА
+   ================================================== */
+
+.header {
+    padding-bottom: var(--size-20px);
+}
+
+.header img {
+    display: block;
+}
+
+.header .right-column .about-me {
+    margin-top: 0;
+}
+
+.header h1 {
+    line-height: 1;
+}
+
+.header-photo {
+    height: var(--size-210px);
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+.job-title {
+    position: relative;
+    padding-bottom: var(--size-12px);
+    margin-bottom: 0;
+}
+
+.job-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--size-4px);
+    border-radius: var(--radius-small);
+    background-color: #444;
+}
+
+.name-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--size-15px);
+}
+
+.name-header h1 {
+    margin-bottom: 0;
+}
+
+.resume-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    color: var(--color-secondary);
+    border-radius: var(--radius-medium);
+    transition: var(--transition-fast);
+}
+
+.resume-download:hover {
+    color: var(--color-accent);
+    background: var(--color-card);
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   КОНТАКТЫ
+   ================================================== */
+
+.contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--size-20px) var(--size-40px);
+    margin-top: var(--size-20px);
+}
+
+.contacts-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-10px);
+    min-width: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--size-10px);
+    font-size: 0.95em;
+    color: var(--color-text);
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-item img {
+    width: var(--size-18px);
+    height: var(--size-18px);
+    object-fit: contain;
+    opacity: 0.8;
+    flex-shrink: 0;
+}
+
+.contact-item a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==================================================
+   ОПЫТ РАБОТЫ
+   ================================================== */
+
+.experience-block {
+    padding-bottom: var(--size-8px);
+}
+
+.experience-block h2 {
+    margin-bottom: var(--size-8px);
+}
+
+.experience-block h3 {
+    margin-top: var(--size-4px);
+    margin-bottom: var(--size-6px);
+    font-weight: 600;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--size-10px);
+    margin-bottom: 0;
+}
+
+.job-header h4 {
+    margin: 0;
+    font-weight: 600;
+    font-size: var(--size-16px);
+}
+
+.experience-block .job-header {
+    margin-bottom: var(--size-6px);
+}
+
+.experience-block h4 {
+    font-size: var(--size-15px);
+    font-weight: 550;
+}
+
+.experience-block ul {
+    margin-top: var(--size-6px);
+    padding-left: var(--size-18px);
+}
+
+.experience-block li {
+    margin-bottom: var(--size-4px);
+}
+
+
+/* ==================================================
+   ГАЛЕРЕЯ ПРОЕКТОВ
+   ================================================== */
 
 .projects {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
+    min-width: 0;
 }
 
-.project-card {
-  background: #020617;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 30px;
+.projects > h2 {
+    margin-bottom: var(--size-15px);
 }
 
-.project-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
+.gallery {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--size-15px);
+    align-items: start;
+    min-width: 0;
 }
 
-.toggles {
-  margin: 10px 0px;
-  padding: 0 0px;
+
+/* ==================================================
+   КАРТОЧКА ПРОЕКТА
+   ================================================== */
+
+.gallery-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    height: var(--size-130px);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: var(--color-card);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: var(--shadow-card);
+
+    transition:
+        height var(--transition-slow),
+        box-shadow 0.3s ease;
+
+    z-index: 1;
 }
 
-.toggle-item {
-  background: #C2D7F2;
-  ;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  overflow: hidden;
+.gallery-item:hover,
+.gallery-item:focus-visible,
+.gallery-item:focus-within,
+.gallery-item.is-open {
+    height: var(--size-220px);
+    box-shadow: var(--shadow-card-hover);
+    z-index: 5;
+    text-decoration: none;
 }
 
-.toggle-item summary:hover .summary-text {
-  color: #2A5E8C;
+
+.gallery-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: var(--size-10px);
 }
 
-.toggle-item summary:hover::after {
-  color: #2A5E8C;
+.gallery-title-wrapper .gallery-title {
+    margin: 0;
 }
 
-.toggle-item summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 18px 20px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #252626;
+.nda-tooltip {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: #0066cc;
+    font-size: 20px;
+    cursor: help;
 }
 
-.toggle-item summary::-webkit-details-marker {
-  display: none;
+/* Всплывающая подсказка */
+.nda-floating-tooltip {
+    position: fixed;
+    z-index: 99999;
+    padding: 8px 12px;
+
+    background: #333;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: nowrap;
+
+    border-radius: 5px;
+    pointer-events: none;
+
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .2s ease, transform .2s ease;
 }
 
-.toggle-item summary::after {
-  content: "▸";
-  float: left;
-  margin-right: 8px;
-  /* ← вот это расстояние */
+.nda-floating-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.toggle-item[open] summary::after {
-  transform: rotate(90deg);
+
+
+/* ==================================================
+   ИЗОБРАЖЕНИЕ СЛЕВА
+   ================================================== */
+
+.gallery-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 var(--size-200px);
+    overflow: hidden;
+    background: var(--color-image-placeholder);
+    transition:
+        width var(--transition-slow),
+        flex-basis var(--transition-slow);
 }
 
-.toggle-content {
-  padding: 0 20px 20px;
-  color: #252626;
+.gallery-item:hover .gallery-image,
+.gallery-item:focus-visible .gallery-image,
+.gallery-item:focus-within .gallery-image,
+.gallery-item.is-open .gallery-image {
+    width: var(--size-350px);
+    flex-basis: var(--size-350px);
 }
 
-.toggle-content img {
-  width: 100%;
-  margin-top: 12px;
-  border-radius: 8px;
+.gallery-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 30px;
-  margin-bottom: 40px;
+.gallery-item:hover .gallery-image img,
+.gallery-item:focus-visible .gallery-image img,
+.gallery-item:focus-within .gallery-image img,
+.gallery-item.is-open .gallery-image img {
+    transform: scale(1);
 }
 
-.card {
-  background: #26528C;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+/* ==================================================
+   ПРАВАЯ ЧАСТЬ КАРТОЧКИ
+   ================================================== */
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
-.card h3 {
-  margin-top: 0;
+
+/* ==================================================
+   НАЗВАНИЕ ПРОЕКТА
+   ================================================== */
+
+.gallery-title {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: var(--size-10px);
+    padding: var(--size-10px) var(--size-15px);
+    margin: 0;
+    font-size: var(--size-17px);
+    line-height: 1.35;
+    font-weight: 600;
+    color: var(--color-heading);
 }
 
-.card-wide {
-  grid-column: span 2;
+.gallery-item:hover .gallery-title,
+.gallery-item:focus-visible .gallery-title,
+.gallery-item:focus-within .gallery-title,
+.gallery-item.is-open .gallery-title {
+    border-bottom: var(--size-1px) solid var(--color-card-border);
 }
 
-/* Адаптивность */
-@media (max-width: 900px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
 
-  .card-wide {
-    grid-column: span 1;
-  }
+/* ==================================================
+   ПОДРОБНОСТИ ПРОЕКТА
+   ================================================== */
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-7px);
+    padding: var(--size-10px) var(--size-15px) var(--size-15px);
+
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-normal),
+        visibility 0s linear var(--transition-normal),
+        gap 0.35s ease;
+
+    pointer-events: none;
+    overflow: hidden;
 }
 
-/* Сетка мини-карточек */
-.responsibility-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 20px;
+
+/* Краткое описание скрыто до наведения */
+
+.project-description {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(var(--size-8px));
+    transition:
+        opacity var(--transition-normal),
+        transform var(--transition-normal),
+        visibility 0s linear var(--transition-normal);
 }
 
-.responsibility-grid1 {
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  gap: 20px;
-  margin-top: 20px;
+.gallery-item:hover .project-description,
+.gallery-item:focus-visible .project-description,
+.gallery-item:focus-within .project-description,
+.gallery-item.is-open .project-description {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.05s;
 }
 
-/* Мини-карточки */
-.mini-card {
-  background: #C2D7F2;
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+/* Подробности появляются при наведении */
+
+.gallery-item:hover .project-details,
+.gallery-item:focus-visible .project-details,
+.gallery-item:focus-within .project-details,
+.gallery-item.is-open .project-details {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0.05s;
 }
 
-/* Заголовки мини-карточек */
-.mini-card h4 {
-  margin-top: 0;
-  margin-bottom: 6px;
-  font-size: 16px;
-  color: #252626;
+.project-details p {
+    margin: 0;
+    font-size: var(--size-13px);
+    line-height: 1.45;
+    color: var(--color-muted);
 }
 
-/* Технологии */
-.mini-card em {
-  display: block;
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 10px;
+.project-details strong {
+    color: var(--color-text);
+    font-weight: 600;
 }
 
-/* Текст */
-.mini-card p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #252626;
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--size-8px);
 }
 
-/* Адаптивность */
-@media (max-width: 1100px) {
-  .responsibility-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.project-meta .project-company {
+    font-size: var(--size-13px);
+    line-height: 1.4;
+    font-weight: 600;
+    color: #444;
 }
 
-@media (max-width: 700px) {
-  .responsibility-grid {
-    grid-template-columns: 1fr;
-  }
+.project-year {
+    white-space: nowrap;
+    font-size: var(--size-12px);
+    color: var(--color-secondary);
+    flex-shrink: 0;
 }
 
-/* #202933
-   #6e7f8d
-   #B3A478
-   #332E20
- */
+.project-description {
+    padding-top: var(--size-7px);
+    border-top: var(--size-1px) solid var(--color-card-border);
+}
+
+
+/* ==================================================
+   ПЛАНШЕТЫ И НЕБОЛЬШИЕ ЭКРАНЫ
+
+   Примечание:
+   переменные var() не работают в условиях @media.
+   1100px = 68.75rem
+   ================================================== */
+
+@media (max-width: 68.75rem) {
+    .container {
+        margin: var(--size-20px);
+        padding: var(--size-25px);
+    }
+
+    .grid {
+        grid-template-columns: var(--size-300px) minmax(0, 1fr);
+    }
+
+    .right-column {
+        margin-left: var(--size-10px);
+    }
+
+    .gallery {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+
+/* ==================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+
+   768px = 48rem
+   ================================================== */
+
+@media (max-width: 48rem) {
+    .container {
+        margin: var(--size-10px);
+        padding: var(--size-20px);
+    }
+
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--size-25px);
+    }
+
+    .right-column {
+        margin-left: 0;
+    }
+
+    .header .grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--size-20px);
+    }
+
+    .header-photo {
+        height: var(--size-180px);
+    }
+
+    .header h1 {
+        font-size: var(--size-48px) !important;
+        line-height: 1.1;
+    }
+
+    .contacts {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--size-15px);
+    }
+
+    .gallery {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--size-12px);
+    }
+
+    .gallery-item {
+        height: var(--size-110px);
+    }
+
+    .gallery-item:hover .gallery-image,
+    .gallery-item:focus-visible .gallery-image,
+    .gallery-item:focus-within .gallery-image,
+    .gallery-item.is-open .gallery-image {
+        width: var(--size-150px);
+        flex-basis: var(--size-150px);
+    }
+
+    .gallery .project-details p,
+    .gallery .project-meta p,
+    .gallery .project-company p {
+        line-height: 1.0;
+    }
+
+    /*
+    .gallery-item:hover,
+    .gallery-item:focus-visible,
+    .gallery-item:focus-within,
+    .gallery-item.is-open {
+        height: 15.625rem;
+    }
+    */
+
+    .gallery-image {
+        width: var(--size-150px);
+        flex-basis: var(--size-150px);
+    }
+
+    .gallery-title {
+        min-height: var(--size-30px);
+        padding: var(--size-8px) var(--size-10px);
+        font-size: var(--size-14px);
+    }
+
+    .project-details {
+        padding: var(--size-8px) var(--size-10px) var(--size-12px);
+        gap: var(--size-6px);
+    }
+
+    .project-details p,
+    .project-meta .project-company {
+        font-size: var(--size-11px);
+    }
+
+    .project-year {
+        font-size: var(--size-10px);
+    }
+}
+
+
+/* ==================================================
+   УЗКИЕ ЭКРАНЫ
+
+   480px = 30rem
+   ================================================== */
+
+@media (max-width: 30rem) {
+    .container {
+        margin: 0;
+        padding: var(--size-16px);
+        border-radius: 0;
+    }
+
+    .header h1 {
+        font-size: var(--size-40px) !important;
+    }
+
+    .contacts {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--size-10px);
+    }
+
+    .gallery {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--size-12px);
+    }
+
+    .gallery-item {
+        height: var(--size-100px);
+    }
+
+    .gallery-item:hover,
+    .gallery-item:focus-visible,
+    .gallery-item:focus-within,
+    .gallery-item.is-open {
+        height: 13.125rem;
+    }
+
+    .gallery-image {
+        width: var(--size-115px);
+        flex-basis: var(--size-115px);
+    }
+
+    .gallery-title {
+        min-height: var(--size-20px);
+        padding: var(--size-7px) var(--size-9px);
+        font-size: var(--size-12px);
+    }
+
+    .project-details {
+        padding: var(--size-7px) var(--size-9px) var(--size-10px);
+        gap: var(--size-5px);
+    }
+
+    .project-details p,
+    .project-meta .project-company {
+        font-size: var(--size-10px);
+    }
+
+    .project-year {
+        font-size: var(--size-10px);
+    }
+
+    .project-meta {
+        flex-wrap: wrap;
+        gap: var(--size-3px);
+    }
+}
+
+/* Когда активна одна карточка */
+.gallery.has-active-card .gallery-item:not(.is-active) .project-details {
+    /* display: none !important; */
+}
+
+/* Уплотняем содержимое неактивных карточек */
+.gallery.has-active-card .gallery-item:not(.is-active) .project-details {
+    gap: var(--size-7px);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.gallery.has-active-card .gallery-item:not(.is-active) .project-details p {
+    line-height: 1.15;
+}
+
+.gallery.has-active-card .gallery-item:not(.is-active) .project-meta {
+    line-height: 1.15;
+}
+
+/* Уменьшаем остальные карточки */
+.gallery.has-active-card .gallery-item:not(.is-active) {
+    height: 7.5rem !important;
+    min-height: 0 !important;
+    aspect-ratio: auto;
+}
+/* увеличиваем шрифт заголовка карточки*/
+.gallery.has-active-card .gallery-item:not(.is-active) .gallery-title{
+    font-size: var(--size-16px);
+    min-height: var(--size-20px);
+}
+
+
+/* ==================================================
+   УМЕНЬШЕНИЕ АНИМАЦИИ ПО НАСТРОЙКАМ ПОЛЬЗОВАТЕЛЯ
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+
+/* ==================================================
+   СТРАНИЦЫ ПРОЕКТОВ
+   ================================================== */
+
+/* Основное оформление */
+
+body.project-page {
+    background: #010A26;
+    color: #e5e7eb;
+    font-family: var(--font-base);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Навигация */
+
+.project-page .container-header {
+    max-width: var(--size-1200px);
+    margin: 0 auto;
+    padding: var(--size-20px) var(--size-20px) 0;
+}
+
+.project-page .container-header a {
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.project-page .container-header a:hover {
+    color: #8bbcff;
+}
+
+/* Контейнер страницы */
+
+.project-page .container {
+    max-width: var(--size-1200px);
+    margin: var(--size-20px) auto var(--size-30px);
+    padding: var(--size-20px);
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Заголовки */
+
+.project-page h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: var(--size-10px);
+}
+
+.project-page h2 {
+    color: #e5e7eb;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: var(--size-10px);
+    margin-bottom: var(--size-15px);
+}
+
+.project-page h3 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: var(--size-10px);
+}
+
+.project-page p {
+    margin: var(--size-5px) 0;
+}
+
+/* Вводное описание */
+
+.project-page .project-intro {
+    color: #cbd5e1;
+    margin-bottom: var(--size-15px);
+    max-width: 100%;
+}
+
+.project-page a {
+    color: #8bbcff;
+}
+
+.project-page a:hover {
+    color: #b8d5ff;
+}
+
+/* ==================================================
+   ОСНОВНЫЕ КАРТОЧКИ
+   ================================================== */
+
+.project-page .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--size-20px);
+    margin-top: var(--size-30px);
+    margin-bottom: var(--size-40px);
+}
+
+.project-page .card {
+    min-width: 0;
+    background: #26528C;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--size-12px);
+    padding: var(--size-20px);
+    box-shadow: 0 var(--size-8px) var(--size-20px)
+        rgba(0,0,0,0.15);
+}
+
+.project-page .card h3 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: var(--size-10px);
+}
+
+.project-page .card p {
+    color: #cbd5e1;
+    font-size: var(--size-14px);
+    line-height: 1.6;
+}
+
+.project-page .card-wide {
+    grid-column: span 2;
+}
+
+/* ==================================================
+   СЕТКА ОТВЕТСТВЕННОСТИ
+   ================================================== */
+
+.project-page .responsibility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--size-20px);
+    margin-top: var(--size-20px);
+}
+
+.project-page .responsibility-grid1 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--size-20px);
+    margin-top: var(--size-20px);
+}
+
+/* ==================================================
+   МИНИ-КАРТОЧКИ
+   ================================================== */
+
+.project-page .mini-card {
+    min-width: 0;
+    background: #C2D7F2;
+    border-radius: var(--size-14px);
+    padding: var(--size-18px);
+    box-shadow: 0 var(--size-4px) var(--size-12px)
+        rgba(0,0,0,0.06);
+}
+
+.project-page .mini-card h4 {
+    margin-top: 0;
+    margin-bottom: var(--size-6px);
+    font-size: var(--size-16px);
+    color: #252626;
+}
+
+.project-page .mini-card em {
+    display: block;
+    font-size: var(--size-13px);
+    color: #666;
+    margin-bottom: var(--size-10px);
+}
+
+.project-page .mini-card p {
+    margin: 0;
+    font-size: var(--size-14px);
+    line-height: 1.5;
+    color: #252626;
+}
+
+/* ==================================================
+   РАСКРЫВАЮЩИЕСЯ БЛОКИ
+   ================================================== */
+
+.project-page .toggles {
+    margin: var(--size-10px) 0;
+}
+
+.project-page .toggle-item {
+    background: #C2D7F2;
+    border-radius: var(--size-12px);
+    margin-bottom: var(--size-16px);
+    overflow: hidden;
+}
+
+.project-page .toggle-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--size-18px) var(--size-20px);
+    font-size: var(--size-18px);
+    font-weight: 500;
+    color: #252626;
+}
+
+.project-page .toggle-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.project-page .toggle-item summary::after {
+    content: "▸";
+    float: left;
+    margin-right: var(--size-8px);
+    transition: transform var(--transition-fast);
+}
+
+.project-page .toggle-item[open] summary::after {
+    transform: rotate(90deg);
+}
+
+.project-page .toggle-item summary:hover .summary-text,
+.project-page .toggle-item summary:hover::after {
+    color: #2A5E8C;
+}
+
+.project-page .toggle-content {
+    padding: 0 var(--size-20px) var(--size-20px);
+    color: #252626;
+}
+
+.project-page .toggle-content p {
+    color: #252626;
+    margin: var(--size-5px) 0;
+}
+
+.project-page .toggle-content img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: var(--size-12px);
+    border-radius: var(--size-8px);
+}
+
+/* ==================================================
+   АДАПТИВНОСТЬ
+   ================================================== */
+
+@media (max-width: 68.75rem) {
+    .project-page .responsibility-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 56.25rem) {
+    .project-page .cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .project-page .card-wide {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 43.75rem) {
+    .project-page .responsibility-grid,
+    .project-page .responsibility-grid1 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .project-page .container {
+        padding: var(--size-15px);
+    }
+
+    .project-page .container-header {
+        padding-left: var(--size-15px);
+        padding-right: var(--size-15px);
+    }
+
+    .project-page .card {
+        padding: var(--size-15px);
+    }
+}
